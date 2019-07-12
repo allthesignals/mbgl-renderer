@@ -27,7 +27,7 @@ fi
 
 export DISPLAY=:${displayNumber}.${screenNumber}
 
-node dist/server.js -p 80 -t ./tiles &
+node dist/server.js -p $PORT -t ./tiles &
 
 child=$!
 wait "$child"

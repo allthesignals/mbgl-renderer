@@ -23,8 +23,9 @@ RUN apt-get update \
 
 EXPOSE 80
 
-COPY ./docker/entrypoint.sh /root
+COPY ./entrypoint.sh /root
 RUN chmod +x /root/entrypoint.sh
 ENTRYPOINT [ "/root/entrypoint.sh" ]
 HEALTHCHECK CMD curl --fail http://localhost:80/ || exit 1
 
+CMD ['mbgl-server', '-p $PORT:$PORT']
